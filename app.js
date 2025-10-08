@@ -10,17 +10,24 @@ app.use(express.json())
 app.use("/posts", postsRoutes)
 app.use("/users", usersRoutes)
 
-app.get("/", (req,res)=>{
+app.get("/users", (req,res)=>{
+    res.status(200).json(user);
+})
+
+
+app.post("/users", (req,res)=>{
+    const {name, email, password} = req.body;
+    if (!name || !email || !password) {
+        req.status(404).json({message: "Usre notfound"})
+    }
+})
+
+app.put("/users/:id", (req,res)=>{
 
 })
 
 
-app.post("/", (req,res)=>{
-
-})
-
-
-app.delete("/", (req,res)=>{
+app.delete("/users/:id", (req,res)=>{
 
 })
 
