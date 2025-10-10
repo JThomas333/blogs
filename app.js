@@ -18,11 +18,22 @@ app.get("/users", (req, res) => {
 app.post("/users", (req, res) => {
     const { name, email, password } = req.body;
     if (!name || !email || !password) {
-        req.status(404).json({ message: "Usre notfound" })
+        res.status(404).json({ message: "Usre notfound" })
     }
+    res.status(201).json("Success")
 })
 
 app.put("/users/:id", (req, res) => {
+
+    const id = req.params.id;
+    if (!id) {
+        res.status(400).json({message: "User not found"})
+    }
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
+        res.status(404).json({ message: "Usre notfound" })
+    }
+    res.status(201).json("Success")
 
 })
 

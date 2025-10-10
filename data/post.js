@@ -23,13 +23,13 @@ export const getPosts = () => db.prepare("SELECT * FROM posts").all();
 export const getPostById = (id) =>
   db.prepare("SELECT * FROM posts where id = ?").get(id);
 
-export const savePost = (title, content) =>
+export const savePost = (userId,title, content) =>
   db
-    .prepare("INSERT into posts (title, content) values (?,?)")
-    .run(title, content);
+    .prepare("INSERT into posts (userId,title, content) values (?,?,?)")
+    .run(userId,title, content);
 export const updatePost = (id, title, content) =>
   db
-    .prepare("UPDATE posts set title = ?, content = ? where id = ?")
-    .run(title, content, id);
+    .prepare("UPDATE posts set userId = ?, title = ?, content = ? where id = ?")
+    .run(userId, title, content, id);
 export const getDeletePost = (id) =>
-  db.prepare("DELETE FROM posts whee id = ?").run(id);
+  db.prepare("DELETE FROM posts where id = ?").run(id);

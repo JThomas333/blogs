@@ -39,4 +39,4 @@ export const updateUser = (id, name, emal, password) =>
     .prepare("UPDATE users set name = ?, email = ?, passwors = ? where id = ?")
     .run(name, emal, password, id);
 export const getDeleteUser = (id) =>
-  db.prepare("DELETE FROM users whee id = ?").run(id);
+  db.prepare("DELETE FROM users where id = ?").run(id);
