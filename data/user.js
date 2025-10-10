@@ -21,7 +21,7 @@ export const getUsers = () => db.prepare("SELECT * FROM users").all();
  * @returns one user's data as an object
  */
 export const getUserById = (id) =>
-  db.prepare("SELECT * FROM users whee id = ?").get(id);
+  db.prepare("SELECT * FROM users where id = ?").get(id);
 
 /**
  * fetch one user's data byemail

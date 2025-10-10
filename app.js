@@ -4,33 +4,33 @@ import postsRoutes from "./routes/postsRoutes.js"
 
 const PORT = 3000
 
-const app =express()
+const app = express()
 app.use(express.json())
 
 app.use("/posts", postsRoutes)
 app.use("/users", usersRoutes)
 
-app.get("/users", (req,res)=>{
+app.get("/users", (req, res) => {
     res.status(200).json(user);
 })
 
 
-app.post("/users", (req,res)=>{
-    const {name, email, password} = req.body;
+app.post("/users", (req, res) => {
+    const { name, email, password } = req.body;
     if (!name || !email || !password) {
-        req.status(404).json({message: "Usre notfound"})
+        req.status(404).json({ message: "Usre notfound" })
     }
 })
 
-app.put("/users/:id", (req,res)=>{
+app.put("/users/:id", (req, res) => {
 
 })
 
 
-app.delete("/users/:id", (req,res)=>{
+app.delete("/users/:id", (req, res) => {
 
 })
 
-app.listen(PORT, () =>{
+app.listen(PORT, () => {
     console.log(PORT)
 })
