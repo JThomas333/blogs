@@ -34,6 +34,7 @@ export const saveUser = (name, emal, password) =>
   db
     .prepare("INSERT into users (name, emal, password) values (?,?,?)")
     .run(name, emal, password);
+    
 export const updateUser = (id, name, emal, password) =>
   db
     .prepare("UPDATE users set name = ?, email = ?, passwors = ? where id = ?")
